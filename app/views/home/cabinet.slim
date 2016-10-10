@@ -1,0 +1,13 @@
+.game-block.col-xs-9
+  .col-xs-12.m-b-2
+    h4 Game form
+    = render 'games/form'
+
+  .col-xs-12
+    h4 Last games
+    = render 'games/games'
+
+.accounts-block.col-xs-3.pull-xs-right
+  .card
+    .card-header Accounts
+    = render 'home/accounts_list', accounts: @user.accounts

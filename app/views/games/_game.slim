@@ -1,0 +1,24 @@
+tr class="game-row-#{game.id}"
+  th.id-col = game.id
+
+  th.bet-col
+    = game.bet_amount
+    '
+    = game.bet_amount_currency
+
+  th.win-col
+    - if game.done?
+      = game.win_amount
+      '
+      = game.win_amount_currency
+      '
+      span.tag class="#{win_background(game.bet_amount, game.win_amount)}"
+        = " (#{game_revenue(game.bet_amount, game.win_amount)} #{game.win_amount_currency}) "
+
+    - elsif game.failure?
+      - game.app_errors.each do |error|
+        span.tag.tag-danger = error.message
+        br
+
+  th.status-col
+    span class="tag tag-#{status_color(game.status)}" = game.status

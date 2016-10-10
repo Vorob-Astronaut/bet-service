@@ -1,0 +1,13 @@
+.row
+  form.new-game-form
+    .col-xs-3
+      label for='bet_amount_cents' Enter bet
+      input.form-control type='number' id='bet_amount_cents' name='bet_amount_cents' required=true
+
+    .col-xs-6
+      label for='account_id' Select your account
+      = render 'games/accounts_select', accounts: current_user.ordered_accounts
+
+    .col-xs-3
+      label Click for submit
+      button.btn.btn-success.submit-new-game type='submit' Submit bet
